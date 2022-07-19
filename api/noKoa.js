@@ -5,7 +5,7 @@ const mixpanel = Mixpanel.init(process.env.MIXPANEL_PROJECT_TOKEN, {
 });
 
 export default function noKoa(req, res) {
-  mixpanel.track("tracking event inside route", {
+  mixpanel.track("tracking event inside Vercel serverless function, without Koa", {
     distinct_id: "113",
   },
   (err, response) => {
