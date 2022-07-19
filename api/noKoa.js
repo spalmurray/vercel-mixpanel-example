@@ -8,5 +8,5 @@ export default function noKoa(req, res) {
   mixpanel.track("tracking event inside route", {
     distinct_id: "113",
   });
-  res.status(200).json("Sent Mixpanel event with serverless function.");
+  res.status(200).json("Sent Mixpanel event with serverless function and not Koa.");
 }
