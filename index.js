@@ -11,11 +11,20 @@ const mixpanel = Mixpanel.init(process.env.MIXPANEL_PROJECT_TOKEN, {
   debug: true,
 });
 
-router.get('/', async ctx => {
-  mixpanel.track('tracking event inside route', {
-    distinct_id: '113',
-  });
-  ctx.body = "Sent Mixpanel event using Vercel and Koa.";
+router.get('/', ctx => {
+  return new Promise((resolve, reject) => {
+    mixpanel.track('tracking event inside koa route', {
+      distinct_id: '113',
+    }, (err, res) => {
+      if (err) {
+        console.error(err);
+        ctx.status(500);
+        reject();
+      }
+      ctx.body = "Sent Mixpanel event using Koa"
+      resolve(res);
+    });
+  })
 });
 
 app.use(router.routes());
