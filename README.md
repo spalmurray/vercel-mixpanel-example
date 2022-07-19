@@ -1,4 +1,5 @@
-This is a minimal example of Mixpanel not working properly with Vercel and Koa.
+This was a minimal example of Mixpanel not working properly with Vercel and Koa,
+but this repo has led us to a solution! :)
 
 There are three situations you can test:
 1. Koa + Vercel
@@ -14,4 +15,4 @@ There are three situations you can test:
    1. `curl localhost:3001/api/koa/`
    1. Check Mixpanel events
 
-As of now, only the last situation works.
+All three now work with the provided configuration.
